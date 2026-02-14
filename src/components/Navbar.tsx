@@ -1,20 +1,20 @@
-"use client";
+"use client"
 
-import Link from "next/link";
-import { useSession, signOut } from "@/lib/auth-client";
-import { useRouter } from "next/navigation";
+import Link from "next/link"
+import { useSession, signOut } from "@/lib/auth-client"
+import { useRouter } from "next/navigation"
 
 export function Navbar() {
-	const { data: session, isPending } = useSession();
-	const router = useRouter();
+	const { data: session, isPending } = useSession()
+	const router = useRouter()
 
 	const handleSignOut = async () => {
-		await signOut();
-		router.push("/");
-	};
+		await signOut()
+		router.push("/")
+	}
 
 	return (
-		<div className="navbar bg-base-100 shadow-sm px-4">
+		<div className="navbar bg-base-100 px-4 shadow-sm">
 			<div className="flex-1">
 				<Link href="/" className="btn btn-ghost text-xl">
 					URL Shortener
@@ -35,7 +35,7 @@ export function Navbar() {
 						</div>
 						<ul
 							tabIndex={0}
-							className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+							className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
 						>
 							<li>
 								<Link href="/dashboard">Dashboard</Link>
@@ -57,5 +57,5 @@ export function Navbar() {
 				)}
 			</div>
 		</div>
-	);
+	)
 }

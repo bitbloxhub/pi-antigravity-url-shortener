@@ -3,6 +3,7 @@
 A powerful, lightning-fast URL shortener built with Next.js 16 and Better Auth.
 
 ## Features
+
 - **Authentication:** Powered by Better Auth with email/password support.
 - **Management Interface:** Create, view, and delete your shortened URLs.
 - **Redirection:** Fast path-based redirection via `/s/[code]`.
@@ -10,6 +11,7 @@ A powerful, lightning-fast URL shortener built with Next.js 16 and Better Auth.
 - **Style:** Built with tabs, trailing commas, and Fira Code.
 
 ## Tech Stack
+
 - **Framework:** [Next.js 16](https://nextjs.org/)
 - **Auth:** [Better Auth](https://www.better-auth.com/)
 - **ORM:** [Drizzle ORM](https://orm.drizzle.team/)
@@ -20,31 +22,34 @@ A powerful, lightning-fast URL shortener built with Next.js 16 and Better Auth.
 ## Getting Started
 
 ### Prerequisites
+
 - Node.js 20.9+
 - pnpm
 - A running PostgreSQL instance
 
 ### Installation
+
 1. Clone the repo.
 2. Install dependencies:
-   ```bash
-   pnpm install
-   ```
+    ```bash
+    pnpm install
+    ```
 3. Set up your environment variables in `.env.local`:
-   ```env
-   DATABASE_URL=postgres://user:password@localhost:2803/postgres
-   BETTER_AUTH_SECRET=your_secret_here
-   BETTER_AUTH_URL=http://localhost:3000
-   NEXT_PUBLIC_BETTER_AUTH_URL=http://localhost:3000
-   ```
+    ```env
+    DATABASE_URL=postgres://user:password@localhost:2803/postgres
+    BETTER_AUTH_SECRET=your_secret_here
+    BETTER_AUTH_URL=http://localhost:3000
+    NEXT_PUBLIC_BETTER_AUTH_URL=http://localhost:3000
+    ```
 4. Push the database schema:
-   ```bash
-   npx drizzle-kit push
-   ```
+    ```bash
+    npx drizzle-kit push
+    ```
 5. Run the development server:
-   ```bash
-   pnpm dev
-   ```
+    ```bash
+    pnpm dev
+    ```
 
 ## Development
+
 See [AGENTS.md](./AGENTS.md) for detailed information on coding standards and internal architecture.

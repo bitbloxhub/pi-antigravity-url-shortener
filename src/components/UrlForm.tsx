@@ -1,24 +1,24 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import { createUrl } from "@/app/actions";
+import { useState } from "react"
+import { createUrl } from "@/app/actions"
 
 export function UrlForm() {
-	const [url, setUrl] = useState("");
-	const [loading, setLoading] = useState(false);
+	const [url, setUrl] = useState("")
+	const [loading, setLoading] = useState(false)
 
 	const handleSubmit = async (e: React.FormEvent) => {
-		e.preventDefault();
-		setLoading(true);
+		e.preventDefault()
+		setLoading(true)
 		try {
-			await createUrl(url);
-			setUrl("");
+			await createUrl(url)
+			setUrl("")
 		} catch (error) {
-			console.error(error);
+			console.error(error)
 		} finally {
-			setLoading(false);
+			setLoading(false)
 		}
-	};
+	}
 
 	return (
 		<form onSubmit={handleSubmit} className="flex gap-2">
@@ -34,5 +34,5 @@ export function UrlForm() {
 				Shorten
 			</button>
 		</form>
-	);
+	)
 }

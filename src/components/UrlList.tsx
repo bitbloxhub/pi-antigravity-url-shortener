@@ -1,33 +1,33 @@
-"use client";
+"use client"
 
-import { deleteUrl } from "@/app/actions";
-import { Trash2, Copy, ExternalLink } from "lucide-react";
-import { useState } from "react";
+import { deleteUrl } from "@/app/actions"
+import { Trash2, Copy, ExternalLink } from "lucide-react"
+import { useState } from "react"
 
 interface UrlListProps {
-	urls: any[];
+	urls: any[]
 }
 
 export function UrlList({ urls }: UrlListProps) {
-	const [copyStatus, setCopyStatus] = useState<string | null>(null);
+	const [copyStatus, setCopyStatus] = useState<string | null>(null)
 
 	const handleCopy = (code: string) => {
-		const fullUrl = `${window.location.origin}/s/${code}`;
-		navigator.clipboard.writeText(fullUrl);
-		setCopyStatus(code);
-		setTimeout(() => setCopyStatus(null), 2000);
-	};
+		const fullUrl = `${window.location.origin}/s/${code}`
+		navigator.clipboard.writeText(fullUrl)
+		setCopyStatus(code)
+		setTimeout(() => setCopyStatus(null), 2000)
+	}
 
 	if (urls.length === 0) {
 		return (
-			<div className="text-center p-8 bg-base-100 rounded-lg border-2 border-dashed border-base-300">
+			<div className="bg-base-100 border-base-300 rounded-lg border-2 border-dashed p-8 text-center">
 				<p className="text-base-content/60">No URLs shortened yet. Create your first one above!</p>
 			</div>
-		);
+		)
 	}
 
 	return (
-		<div className="overflow-x-auto bg-base-100 rounded-lg shadow">
+		<div className="bg-base-100 overflow-x-auto rounded-lg shadow">
 			<table className="table">
 				<thead>
 					<tr>
@@ -42,7 +42,7 @@ export function UrlList({ urls }: UrlListProps) {
 						<tr key={url.id}>
 							<td>
 								<div className="flex items-center gap-2">
-									<span className="font-mono text-primary font-bold">{url.shortCode}</span>
+									<span className="text-primary font-mono font-bold">{url.shortCode}</span>
 									<button
 										onClick={() => handleCopy(url.shortCode)}
 										className="btn btn-ghost btn-xs tooltip"
@@ -63,14 +63,9 @@ export function UrlList({ urls }: UrlListProps) {
 									<ExternalLink size={12} />
 								</a>
 							</td>
-							<td className="text-sm opacity-70">
-								{new Date(url.createdAt).toLocaleDateString()}
-							</td>
+							<td className="text-sm opacity-70">{new Date(url.createdAt).toLocaleDateString()}</td>
 							<td className="text-right">
-								<button
-									onClick={() => deleteUrl(url.id)}
-									className="btn btn-ghost btn-sm text-error"
-								>
+								<button onClick={() => deleteUrl(url.id)} className="btn btn-ghost btn-sm text-error">
 									<Trash2 size={16} />
 								</button>
 							</td>
@@ -79,5 +74,5 @@ export function UrlList({ urls }: UrlListProps) {
 				</tbody>
 			</table>
 		</div>
-	);
+	)
 }
